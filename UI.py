@@ -3,7 +3,7 @@ import streamlit as st
 from openai import AzureOpenAI
 from dotenv import load_dotenv
 load_dotenv(override=True)
-api_key = os.getenv('OPENAI_API_KEY')
+#api_key = os.getenv('OPENAI_API_KEY')
 
 
 # -----------------------------
@@ -11,7 +11,7 @@ api_key = os.getenv('OPENAI_API_KEY')
 # -----------------------------
 endpoint = "https://llmeng.cognitiveservices.azure.com/"
 api_version = "2024-12-01-preview"
-api_key = "EZvsLgoMjONIsOjWpZSJj8SVY8DqLtPOktVITBEsG3eyyvxG5kj6JQQJ99BLACF24PCXJ3w3AAAAACOGbtrJ"
+api_key = os.getenv('OPENAI_API_KEY')
 deployment = "gpt-4.1-mini"
 
 client = AzureOpenAI(
