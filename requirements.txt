@@ -2,3 +2,5 @@ openai>=1.54.0
 streamlit>=1.32
 python-dotenv
 requests
+faiss-cpu
+pypdf
