@@ -1,0 +1,44 @@
+TABLE customers (
+    customer_id INTEGER PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+    email TEXT,
+    phone TEXT,
+    country TEXT
+)
+
+TABLE orders (
+    order_id INTEGER PRIMARY KEY,
+    customer_id INTEGER,
+    order_date TEXT,
+    order_status TEXT,
+    total_amount FLOAT,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+)
+
+TABLE order_items (
+    item_id INTEGER PRIMARY KEY,
+    order_id INTEGER,
+    product_id INTEGER,
+    quantity INTEGER,
+    price_per_unit FLOAT,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+)
+
+TABLE products (
+    product_id INTEGER PRIMARY KEY,
+    product_name TEXT,
+    category TEXT,
+    price FLOAT,
+    stock_quantity INTEGER
+)
+
+TABLE payments (
+    payment_id INTEGER PRIMARY KEY,
+    order_id INTEGER,
+    payment_date TEXT,
+    payment_method TEXT,
+    amount_paid FLOAT,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+)
